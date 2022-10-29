@@ -18,7 +18,6 @@ public class dtoProyectos {
     @NotBlank
     private String fechaPro;
     
-    //CONSTRUCTORES
 
     public dtoProyectos() {
     }
@@ -29,7 +28,6 @@ public class dtoProyectos {
         this.fechaPro = fechaPro;
     }
     
-    //GETTERS & SETTERS
 
     public String getNombrePro() {
         return nombrePro;

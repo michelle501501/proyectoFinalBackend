@@ -20,8 +20,6 @@ public class Proyectos {
     private String descripcionPro;
     private String fechaPro;
     
-    // CONSTRUCTORES
-
     public Proyectos() {
     }
 
@@ -32,7 +30,6 @@ public class Proyectos {
     }
     
     
-   //GETTERS & SETTERS
 
     public int getId() {
         return id;
