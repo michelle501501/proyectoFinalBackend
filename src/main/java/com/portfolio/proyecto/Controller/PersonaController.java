@@ -1,10 +1,13 @@
 package com.portfolio.proyecto.Controller;
 
+import com.portfolio.proyecto.Dto.dtoPersona;
 import com.portfolio.proyecto.Entity.Persona;
 import com.portfolio.proyecto.Interface.IpersonaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +41,7 @@ public class PersonaController {
        return "La persona fue eliminada correctamente";
     }
     
-    
+    /*
     @PutMapping("/personas/editar/{id}")
     public Persona editPersona(@PathVariable Long id,
                                @RequestParam("nombre") String nuevoNombre,
@@ -57,6 +60,22 @@ public class PersonaController {
     
         ipersonaService.savePersona(persona);
         return persona;
+    }
+*/
+    @PutMapping("/personas/editar/{id}")
+    public ResponseEntity<?> editPersona(@PathVariable Long id,@RequestBody dtoPersona dtopersona
+    ){
+        Persona persona = ipersonaService.findPersona(id);
+
+        persona.setNombre(dtopersona.getNombre());
+        persona.setApellido(dtopersona.getApellido());
+        persona.setImg(dtopersona.getImg());
+        persona.setBio(dtopersona.getBio());
+        persona.setPuesto(dtopersona.getPuesto());
+    
+        ipersonaService.savePersona(persona);
+        //return persona;
+        return new ResponseEntity(new Mensaje("Persona actualizada"), HttpStatus.OK);
     }
     
 
