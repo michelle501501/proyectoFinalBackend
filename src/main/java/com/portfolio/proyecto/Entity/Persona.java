@@ -29,10 +29,10 @@ public class Persona {
     private String puesto;
     
     //@NotNull
-    @Size(min = 1, max = 250, message = "no cumple con la longitud")
+    @Size(min = 1, max = 300, message = "no cumple con la longitud")
     private String bio;
     
-    @Size(min = 1, max = 50, message = "no cumple con la longitud")
+    @Size(min = 1, max = 300, message = "no cumple con la longitud")
     private String img;
 
     
